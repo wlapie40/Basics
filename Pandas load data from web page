@@ -1,0 +1,25 @@
+import urllib
+import pandas as pd
+url='http://aima.cs.berkeley.edu/data/iris.csv'
+set1=urllib.request.Request(url)
+iris_p=urllib.request.urlopen(set1)
+iris_other= pd.read_csv(iris_p,sep=',', decimal='.',header=None,names=['sepal_length','sepal_width','petal_length','petal_width','target'])
+# to show the very first 5 records
+print(iris_other.head())
+# to show the last 5 records
+print(iris_other.tail())
+
+# to show the very first 2 records
+print(iris_other.head(2))
+# to show columns
+print(iris_other.columns)
+
+# to get single column
+Y=iris_other['target']
+print(Y)
+
+X=iris_other[['sepal_length','sepal_width']]
+print(X)
+# show how matrx size
+print(Y.shape)
+print(X.shape)
